@@ -1,25 +1,26 @@
 import {
   FETCHING_CONTENT,
   FETCH_SUCCESS
-} from './constants'
-import $ from 'jquery'
+} from './constants';
+import $ from 'jquery';
 
 const fetchContent = (tag) => {
   return (dispatch) => {
     dispatch(fetchingApi())
-    $.get(`https://api.flickr.com/services/feeds/photos_public.gne?tags=${tag}`, (response) => {
-        $(response).find('entry').each(function(){
-          let author = $(this).find('author').find('name').text()
-          let link = $(this).find('link[rel="enclosure"]').attr('href')
-          let parsedResponse = {
-            title: author,
-            link: link
-          }
-          dispatch(fetchSuccess(parsedResponse))
-        })
-    });
+    $.getJSON(
+      `http://api.flickr.com/services/feeds/photos_public.gne?tags=${tag}&format=json&jsoncallback=?`,
+         function(data) {
+         $.each(data.items, function(i, item) {
+         let parsedResponse = {
+               title: item.title,
+               link: item.media.m
+             }
+     dispatch(fetchSuccess(parsedResponse))
+       });
+     });
   }
 }
+
 
 const fetchingApi = () => {
   return {
