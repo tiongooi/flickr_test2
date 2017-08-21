@@ -1,0 +1,68 @@
+
+.flexContainerColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: rgb(179, 183, 188);
+}
+
+.title {
+  width: 100%;
+  height: 100px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.button {
+  width:145px;
+  height:40px;
+  border-radius: 50px;
+  border: 0px;
+  color:white;
+  margin-top: 10px;
+  margin-bottom:20px;
+  background-color:grey;
+}
+
+.textArea {
+  background-color: rgba(255, 255, 255, 0.5);
+  border:0px;
+}
+
+.flexContainerRow {
+  display: flex;
+  width: 100%;
+  padding: 40px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content:center;
+  align-items: center;
+}
+
+.noImage {
+  position: relative;
+  left: -40px;
+}
+
+.imageCard {
+  width:200px;
+  height:250px;
+  position: relative;
+  left: -40px;
+  margin: 15px;
+  background-color: rgb(234, 236, 239);
+  overflow: hidden;
+}
+
+.imageCardTitle {
+  width:200px;
+  margin: 4px,6px;
+  text-align: justify;
+}
+
+.imageCardTitle>p {
+  text-align: center;
+  color: grey;
+}
